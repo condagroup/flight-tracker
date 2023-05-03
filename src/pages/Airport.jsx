@@ -67,9 +67,21 @@ function Airport() {
 
   var fetchEnd = Math.round(Date.now() / 1000);
   var fetchBegin = fetchEnd - 86400;
- 
- var fetchurl0 = "https://opensky-network.org/api/flights/arrival?airport="+infoSlug+"&begin="+fetchBegin+"&end="+fetchEnd ; // Real live data
- var fetchurl1 = "https://opensky-network.org/api/flights/departure?airport="+infoSlug+"&begin="+fetchBegin+"&end="+fetchEnd ; // Test data
+
+  var fetchurl0 =
+    "https://opensky-network.org/api/flights/arrival?airport=" +
+    infoSlug +
+    "&begin=" +
+    fetchBegin +
+    "&end=" +
+    fetchEnd; // Real live data
+  var fetchurl1 =
+    "https://opensky-network.org/api/flights/departure?airport=" +
+    infoSlug +
+    "&begin=" +
+    fetchBegin +
+    "&end=" +
+    fetchEnd; // Test data
 
   useEffect(() => {
     fetch("https://hexdb.io/api/v1/airport/icao/" + infoSlug)
@@ -118,8 +130,8 @@ function Airport() {
       });
   }, []);
   var iconSize = 0;
-  if(lat != 0 && lon != 0) {
-    iconSize=24;
+  if (lat != 0 && lon != 0) {
+    iconSize = 24;
   }
   var markr = null;
 

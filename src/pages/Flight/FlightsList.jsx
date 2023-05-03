@@ -114,7 +114,7 @@ function FlightsList() {
       setBackLink("");
     }
   }, [infoSlug]);
-   var fetchurl0 = `https://opensky-network.org/api/states/all`; 
+  var fetchurl0 = `https://opensky-network.org/api/states/all`;
 
   useEffect(() => {
     fetch(fetchurl0)

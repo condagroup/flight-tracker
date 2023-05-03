@@ -77,13 +77,11 @@ function FlightInfo() {
     inputType = "hex";
     hexCode = inputCheck[1];
 
-
-    var fetchurl0 = "https://hexdb.io/hex-image-thumb?hex=" + hexCode; 
-    var fetchurl1 = `https://hexdb.io/api/v1/aircraft/` + hexCode; 
-     var fetchurl2 = `https://opensky-network.org/api/states/all?icao24=`+hexCode; 
+    var fetchurl0 = "https://hexdb.io/hex-image-thumb?hex=" + hexCode;
+    var fetchurl1 = `https://hexdb.io/api/v1/aircraft/` + hexCode;
+    var fetchurl2 =
+      `https://opensky-network.org/api/states/all?icao24=` + hexCode;
   }
-
-
 
   useEffect(() => {
     fetch(fetchurl0).then((r) => {
@@ -96,7 +94,6 @@ function FlightInfo() {
       .then((responseData) => {
         console.log(responseData);
         setAircraftData(responseData);
-
       })
       .catch((e) => {
         console.log(e.toString());
@@ -318,7 +315,6 @@ function FlightInfo() {
           }, 10000); // How often flight status refreshes in milliseconds, change to a smaller number if you want it to refresh more often
 
           return () => clearInterval(intervalRefresh);
-
         }
       })
       .catch((e) => {
@@ -349,7 +345,6 @@ function FlightInfo() {
         });
       });
   }, []);
-
 
   const customIcon = new Icon({
     iconUrl: "./../directions/d45.png",
@@ -472,8 +467,7 @@ function FlightInfo() {
                           iconSize: [size, size],
                         })
                       }
-                    >
-                    </Marker>
+                    ></Marker>
                   </MapContainer>
                 ) : null}
               </div>
