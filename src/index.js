@@ -7,13 +7,13 @@ import Flight from "./pages/Flight/Flight";
 import FlightInfo from "./pages/Flight/FlightInfo";
 import FlightsList from "./pages/Flight/FlightsList";
 import NotFound from "./pages/NotFound";
-import './App.css';
+import "./App.css";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route index element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/" element={<Layout />}>
           <Route path="airport" element={<Airport />}>
             <Route path="" element={<NotFound />} />
@@ -27,7 +27,7 @@ export default function App() {
             <Route path="" element={<NotFound />} />
             <Route path=":infoSlug" element={<FlightInfo />} />
           </Route>
-          <Route path="*" element={<NotFound/>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

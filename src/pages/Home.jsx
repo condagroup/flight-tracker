@@ -21,19 +21,13 @@ function Home() {
 
   function handleChange1(event) {
     if (event.target.value.length > 3) {
-      fetch(
-        "https://hexdb.io/reg-hex?reg=" +
-          event.target.value
-      ).then((r) => {
+      fetch("https://hexdb.io/reg-hex?reg=" + event.target.value).then((r) => {
         r.text().then((d) => {
           if (d.length == 6) {
             setAircraftNoResultsVisibility("d-none");
             setAircraftTableVisibility("d-block");
 
-            fetch(
-              "https://hexdb.io/api/v1/aircraft/" +
-                d
-            )
+            fetch("https://hexdb.io/api/v1/aircraft/" + d)
               .then((response) => response.json())
               .then((responseData) => {
                 console.log(responseData);
@@ -53,17 +47,14 @@ function Home() {
   }
 
   function handleChange2(event) {
-    var airportFetchUrl =
-      "https://hexdb.io/api/v1/airport/iata/";
+    var airportFetchUrl = "https://hexdb.io/api/v1/airport/iata/";
 
     if (event.target.value.length == 3 || event.target.value.length == 4) {
       if (event.target.value.length == 3) {
-        airportFetchUrl =
-          "https://hexdb.io/api/v1/airport/iata/";
+        airportFetchUrl = "https://hexdb.io/api/v1/airport/iata/";
       }
       if (event.target.value.length == 4) {
-        airportFetchUrl =
-          "https://hexdb.io/api/v1/airport/icao/";
+        airportFetchUrl = "https://hexdb.io/api/v1/airport/icao/";
       }
       fetch(airportFetchUrl + event.target.value)
         .then((response) => response.json())
@@ -94,13 +85,10 @@ function Home() {
 
   return (
     <>
-      <nav
-        id="nav-home"
-        className="navbar navbar-expand navbar-dark bg-dark"
-      >
+      <nav id="nav-home" className="navbar navbar-expand navbar-dark bg-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-          <img className="navbar-logo" src="./logo192.png" /> Flight tracker
+            <img className="navbar-logo" src="./logo192.png" /> Flight tracker
           </Link>
           <button
             className="navbar-toggler"
@@ -123,7 +111,7 @@ function Home() {
       </nav>
       <section
         className="jumbotron text-light text-left"
-        style={{ "backgroundImage": "url(./jumbotron-background.png)" }}
+        style={{ backgroundImage: "url(./jumbotron-background.png)" }}
       >
         <div className="container">
           <div className="row">
@@ -135,11 +123,7 @@ function Home() {
                 the flight LIVE
               </p>
               <p>
-                <Link
-                  id="lnk"
-                  to="map"
-                  className="btn btn-success btn-lg mt-2"
-                >
+                <Link id="lnk" to="map" className="btn btn-success btn-lg mt-2">
                   View map
                 </Link>
               </p>
@@ -219,7 +203,9 @@ function Home() {
                 <tbody>
                   <tr>
                     <td>
-                      <Link to={airportInfoUrl}>{searchedAirport?.airport}</Link>
+                      <Link to={airportInfoUrl}>
+                        {searchedAirport?.airport}
+                      </Link>
                     </td>
                     <td>{searchedAirport?.icao}</td>
                   </tr>
